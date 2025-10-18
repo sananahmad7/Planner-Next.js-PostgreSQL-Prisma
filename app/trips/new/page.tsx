@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-//import { createTrip } from "@/lib/actions/create-trip";
+import { createTrip } from "@/lib/actions/create-trip";
 import { cn } from "@/lib/utils";
-//import { UploadButton } from "@/lib/upload-thing";
+import { UploadButton } from "@/lib/upload-thing";
 import { useState, useTransition } from "react";
 import Image from "next/image";
 
@@ -23,7 +23,7 @@ export default function NewTrip() {
                 formData.append("imageUrl", imageUrl);
               }
               startTransition(() => {
-                //createTrip(formData);
+                createTrip(formData);
               });
             }}
           >
@@ -86,7 +86,7 @@ export default function NewTrip() {
                 />
               </div>
             </div>
-            {/* <div>
+            <div>
               <label> Trip Image</label>
 
               {imageUrl && (
@@ -94,8 +94,7 @@ export default function NewTrip() {
                   src={imageUrl}
                   alt="Trip Preview"
                   className="w-full mb-4 rounded-md max-h-48 object-cover"
-                  width={300}
-                  height={100}
+                  fill
                 />
               )}
               <UploadButton
@@ -109,7 +108,7 @@ export default function NewTrip() {
                   console.error("Upload error: ", error);
                 }}
               />
-            </div> */}
+            </div>
             <Button type="submit" disabled={isPending} className="w-full">
               {isPending ? "Creating..." : "Create Trip"}
             </Button>
