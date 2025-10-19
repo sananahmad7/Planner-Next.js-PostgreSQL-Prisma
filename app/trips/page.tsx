@@ -13,19 +13,19 @@ import Link from "next/link";
 export default async function TripsPage() {
   const session = await auth();
 
-  //   const trips = await prisma.trip.findMany({
-  //     where: { userId: session?.user?.id },
-  //   });
+  const trips = await prisma.trip.findMany({
+    where: { userId: session?.user?.id },
+  });
 
-  //   const sortedTrips = [...trips].sort(
-  //     (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
-  //   );
+  const sortedTrips = [...trips].sort(
+    (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+  );
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  //   const upcomingTrips = sortedTrips.filter(
-  //     (trip) => new Date(trip.startDate) >= today
-  //   );
+  const upcomingTrips = sortedTrips.filter(
+    (trip) => new Date(trip.startDate) >= today
+  );
 
   if (!session) {
     return (
@@ -53,7 +53,7 @@ export default async function TripsPage() {
         <CardContent>
           <p>
             {" "}
-            {/* {trips.length === 0
+            {trips.length === 0
               ? "Start planning your first trip by clicking the button above."
               : `You have ${trips.length} ${
                   trips.length === 1 ? "trip" : "trips"
@@ -61,7 +61,7 @@ export default async function TripsPage() {
                   upcomingTrips.length > 0
                     ? `${upcomingTrips.length} upcoming.`
                     : ""
-                } `} */}
+                } `}
           </p>
         </CardContent>
       </Card>

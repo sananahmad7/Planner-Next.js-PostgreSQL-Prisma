@@ -94,7 +94,8 @@ export default function NewTrip() {
                   src={imageUrl}
                   alt="Trip Preview"
                   className="w-full mb-4 rounded-md max-h-48 object-cover"
-                  fill
+                  width={300}
+                  height={100}
                 />
               )}
               <UploadButton
