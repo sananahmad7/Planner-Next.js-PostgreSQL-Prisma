@@ -173,6 +173,16 @@ exports.Prisma.TripScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.LocationScalarFieldEnum = {
+  id: 'id',
+  locationTitle: 'locationTitle',
+  lat: 'lat',
+  lng: 'lng',
+  tripId: 'tripId',
+  order: 'order',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -194,7 +204,8 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Session: 'Session',
   VerificationToken: 'VerificationToken',
-  Trip: 'Trip'
+  Trip: 'Trip',
+  Location: 'Location'
 };
 
 /**

@@ -68,7 +68,7 @@ export default async function TripsPage() {
 
       <div>
         <h2 className="text-xl font-semibold mb-4"> Your Recent Trips</h2>
-        {/* {trips.length === 0 ? (
+        {trips.length === 0 ? (
           <Card>
             <CardContent className="flex flex-col items-center justify-center py-8">
               <h3 className="text-xl font-medium mb-2"> No trips yet.</h3>
@@ -103,7 +103,7 @@ export default async function TripsPage() {
               </Link>
             ))}
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
