@@ -1364,11 +1364,11 @@ export namespace Prisma {
    */
 
   export type TripCountOutputType = {
-    location: number
+    locations: number
   }
 
   export type TripCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    location?: boolean | TripCountOutputTypeCountLocationArgs
+    locations?: boolean | TripCountOutputTypeCountLocationsArgs
   }
 
   // Custom InputTypes
@@ -1385,7 +1385,7 @@ export namespace Prisma {
   /**
    * TripCountOutputType without action
    */
-  export type TripCountOutputTypeCountLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TripCountOutputTypeCountLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LocationWhereInput
   }
 
@@ -5983,7 +5983,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-    location?: boolean | Trip$locationArgs<ExtArgs>
+    locations?: boolean | Trip$locationsArgs<ExtArgs>
     _count?: boolean | TripCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trip"]>
 
@@ -6028,7 +6028,7 @@ export namespace Prisma {
   export type TripOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "imageUrl" | "startDate" | "endDate" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["trip"]>
   export type TripInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-    location?: boolean | Trip$locationArgs<ExtArgs>
+    locations?: boolean | Trip$locationsArgs<ExtArgs>
     _count?: boolean | TripCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TripIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6042,7 +6042,7 @@ export namespace Prisma {
     name: "Trip"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      location: Prisma.$LocationPayload<ExtArgs>[]
+      locations: Prisma.$LocationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6449,7 +6449,7 @@ export namespace Prisma {
   export interface Prisma__TripClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    location<T extends Trip$locationArgs<ExtArgs> = {}>(args?: Subset<T, Trip$locationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    locations<T extends Trip$locationsArgs<ExtArgs> = {}>(args?: Subset<T, Trip$locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6884,9 +6884,9 @@ export namespace Prisma {
   }
 
   /**
-   * Trip.location
+   * Trip.locations
    */
-  export type Trip$locationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Trip$locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Location
      */
@@ -8521,7 +8521,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Trip"> | Date | string
     updatedAt?: DateTimeFilter<"Trip"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    location?: LocationListRelationFilter
+    locations?: LocationListRelationFilter
   }
 
   export type TripOrderByWithRelationInput = {
@@ -8535,7 +8535,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    location?: LocationOrderByRelationAggregateInput
+    locations?: LocationOrderByRelationAggregateInput
   }
 
   export type TripWhereUniqueInput = Prisma.AtLeast<{
@@ -8552,7 +8552,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Trip"> | Date | string
     updatedAt?: DateTimeFilter<"Trip"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    location?: LocationListRelationFilter
+    locations?: LocationListRelationFilter
   }, "id">
 
   export type TripOrderByWithAggregationInput = {
@@ -8956,7 +8956,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutTripsInput
-    location?: LocationCreateNestedManyWithoutTripInput
+    locations?: LocationCreateNestedManyWithoutTripInput
   }
 
   export type TripUncheckedCreateInput = {
@@ -8969,7 +8969,7 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    location?: LocationUncheckedCreateNestedManyWithoutTripInput
+    locations?: LocationUncheckedCreateNestedManyWithoutTripInput
   }
 
   export type TripUpdateInput = {
@@ -8982,7 +8982,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutTripsNestedInput
-    location?: LocationUpdateManyWithoutTripNestedInput
+    locations?: LocationUpdateManyWithoutTripNestedInput
   }
 
   export type TripUncheckedUpdateInput = {
@@ -8995,7 +8995,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUncheckedUpdateManyWithoutTripNestedInput
+    locations?: LocationUncheckedUpdateManyWithoutTripNestedInput
   }
 
   export type TripCreateManyInput = {
@@ -9040,7 +9040,7 @@ export namespace Prisma {
     lng: number
     order?: number
     createdAt?: Date | string
-    trip: TripCreateNestedOneWithoutLocationInput
+    trip: TripCreateNestedOneWithoutLocationsInput
   }
 
   export type LocationUncheckedCreateInput = {
@@ -9060,7 +9060,7 @@ export namespace Prisma {
     lng?: FloatFieldUpdateOperationsInput | number
     order?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trip?: TripUpdateOneRequiredWithoutLocationNestedInput
+    trip?: TripUpdateOneRequiredWithoutLocationsNestedInput
   }
 
   export type LocationUncheckedUpdateInput = {
@@ -9817,9 +9817,9 @@ export namespace Prisma {
     deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
   }
 
-  export type TripCreateNestedOneWithoutLocationInput = {
-    create?: XOR<TripCreateWithoutLocationInput, TripUncheckedCreateWithoutLocationInput>
-    connectOrCreate?: TripCreateOrConnectWithoutLocationInput
+  export type TripCreateNestedOneWithoutLocationsInput = {
+    create?: XOR<TripCreateWithoutLocationsInput, TripUncheckedCreateWithoutLocationsInput>
+    connectOrCreate?: TripCreateOrConnectWithoutLocationsInput
     connect?: TripWhereUniqueInput
   }
 
@@ -9831,12 +9831,12 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type TripUpdateOneRequiredWithoutLocationNestedInput = {
-    create?: XOR<TripCreateWithoutLocationInput, TripUncheckedCreateWithoutLocationInput>
-    connectOrCreate?: TripCreateOrConnectWithoutLocationInput
-    upsert?: TripUpsertWithoutLocationInput
+  export type TripUpdateOneRequiredWithoutLocationsNestedInput = {
+    create?: XOR<TripCreateWithoutLocationsInput, TripUncheckedCreateWithoutLocationsInput>
+    connectOrCreate?: TripCreateOrConnectWithoutLocationsInput
+    upsert?: TripUpsertWithoutLocationsInput
     connect?: TripWhereUniqueInput
-    update?: XOR<XOR<TripUpdateToOneWithWhereWithoutLocationInput, TripUpdateWithoutLocationInput>, TripUncheckedUpdateWithoutLocationInput>
+    update?: XOR<XOR<TripUpdateToOneWithWhereWithoutLocationsInput, TripUpdateWithoutLocationsInput>, TripUncheckedUpdateWithoutLocationsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10117,7 +10117,7 @@ export namespace Prisma {
     endDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-    location?: LocationCreateNestedManyWithoutTripInput
+    locations?: LocationCreateNestedManyWithoutTripInput
   }
 
   export type TripUncheckedCreateWithoutUserInput = {
@@ -10129,7 +10129,7 @@ export namespace Prisma {
     endDate: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
-    location?: LocationUncheckedCreateNestedManyWithoutTripInput
+    locations?: LocationUncheckedCreateNestedManyWithoutTripInput
   }
 
   export type TripCreateOrConnectWithoutUserInput = {
@@ -10485,7 +10485,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Location"> | Date | string
   }
 
-  export type TripCreateWithoutLocationInput = {
+  export type TripCreateWithoutLocationsInput = {
     id?: string
     title: string
     description: string
@@ -10497,7 +10497,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutTripsInput
   }
 
-  export type TripUncheckedCreateWithoutLocationInput = {
+  export type TripUncheckedCreateWithoutLocationsInput = {
     id?: string
     title: string
     description: string
@@ -10509,23 +10509,23 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type TripCreateOrConnectWithoutLocationInput = {
+  export type TripCreateOrConnectWithoutLocationsInput = {
     where: TripWhereUniqueInput
-    create: XOR<TripCreateWithoutLocationInput, TripUncheckedCreateWithoutLocationInput>
+    create: XOR<TripCreateWithoutLocationsInput, TripUncheckedCreateWithoutLocationsInput>
   }
 
-  export type TripUpsertWithoutLocationInput = {
-    update: XOR<TripUpdateWithoutLocationInput, TripUncheckedUpdateWithoutLocationInput>
-    create: XOR<TripCreateWithoutLocationInput, TripUncheckedCreateWithoutLocationInput>
+  export type TripUpsertWithoutLocationsInput = {
+    update: XOR<TripUpdateWithoutLocationsInput, TripUncheckedUpdateWithoutLocationsInput>
+    create: XOR<TripCreateWithoutLocationsInput, TripUncheckedCreateWithoutLocationsInput>
     where?: TripWhereInput
   }
 
-  export type TripUpdateToOneWithWhereWithoutLocationInput = {
+  export type TripUpdateToOneWithWhereWithoutLocationsInput = {
     where?: TripWhereInput
-    data: XOR<TripUpdateWithoutLocationInput, TripUncheckedUpdateWithoutLocationInput>
+    data: XOR<TripUpdateWithoutLocationsInput, TripUncheckedUpdateWithoutLocationsInput>
   }
 
-  export type TripUpdateWithoutLocationInput = {
+  export type TripUpdateWithoutLocationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -10537,7 +10537,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutTripsNestedInput
   }
 
-  export type TripUncheckedUpdateWithoutLocationInput = {
+  export type TripUncheckedUpdateWithoutLocationsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -10660,7 +10660,7 @@ export namespace Prisma {
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUpdateManyWithoutTripNestedInput
+    locations?: LocationUpdateManyWithoutTripNestedInput
   }
 
   export type TripUncheckedUpdateWithoutUserInput = {
@@ -10672,7 +10672,7 @@ export namespace Prisma {
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUncheckedUpdateManyWithoutTripNestedInput
+    locations?: LocationUncheckedUpdateManyWithoutTripNestedInput
   }
 
   export type TripUncheckedUpdateManyWithoutUserInput = {

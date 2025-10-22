@@ -1,21 +1,21 @@
 "use client";
 
-import { Trip } from "@/app/generated/prisma";
+import { Trip, Location } from "@/app/generated/prisma";
 import Image from "next/image";
 import { Calendar, MapPin, Plus } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useState } from "react";
-//import Map from "@/components/map";
+import Map from "@/components/map";
 //import SortableItinerary from "./sortable-itinerary";
 
-// export type TripWithLocation = Trip & {
-//   locations: Location[];
-// };
+export type TripWithLocation = Trip & {
+  locations: Location[];
+};
 
 interface TripDetailClientProps {
-  trip: Trip;
+  trip: TripWithLocation;
 }
 
 export default function TripDetailClient({ trip }: TripDetailClientProps) {
@@ -52,7 +52,7 @@ export default function TripDetailClient({ trip }: TripDetailClientProps) {
           </div>
         </div>
         <div className="mt-4 md:mt-0">
-          <Link href={`/trips/${trip.id}/itinerary/new`}>
+          <Link href={`/trips/${trip.id}/itenerary/new`}>
             <Button>
               {" "}
               <Plus className="mr-2 h-5 w-5" /> Add Location
@@ -100,15 +100,15 @@ export default function TripDetailClient({ trip }: TripDetailClientProps) {
                       <p> Destinations</p>
                       <p>
                         {" "}
-                        {/* {trip.locations.length}{" "}
-                        {trip.locations.length === 1 ? "location" : "locations"} */}
+                        {trip.locations.length}{" "}
+                        {trip.locations.length === 1 ? "location" : "locations"}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="h-72 rounded-lg overflow-hidden shadow">
-                {/* <Map itineraries={trip.locations} /> */}
+                <Map itineraries={trip.locations} />
               </div>
               {/* {trip.locations.length === 0 && (
                 <div className="text-center p-4">
